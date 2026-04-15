@@ -1,0 +1,443 @@
+/* ============================================
+   🎂 BIRTHDAY STYLESHEET
+   Playful · Festive · Joyful
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;900&display=swap');
+
+/* ─── CSS Variables ─────────────────────────── */
+:root {
+  --pink:      #FF6B9D;
+  --yellow:    #FFD93D;
+  --mint:      #6BCB77;
+  --sky:       #4D96FF;
+  --coral:     #FF6B6B;
+  --lavender:  #C77DFF;
+  --cream:     #FFFBF0;
+  --dark:      #2D2D2D;
+  --white:     #FFFFFF;
+
+  --font-display: 'Pacifico', cursive;
+  --font-body:    'Nunito', sans-serif;
+
+  --radius-sm:  8px;
+  --radius-md:  16px;
+  --radius-lg:  32px;
+  --radius-xl:  64px;
+
+  --shadow-soft:  0 4px 20px rgba(255, 107, 157, 0.2);
+  --shadow-pop:   0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-float: 0 16px 48px rgba(255, 107, 157, 0.3);
+}
+
+/* ─── Reset & Base ──────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--cream);
+  color: var(--dark);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  /* Subtle dot-grid background */
+  background-image: radial-gradient(circle, rgba(255,107,157,0.12) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+}
+
+/* ─── Typography ────────────────────────────── */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  color: var(--pink);
+  text-shadow: 3px 3px 0 var(--yellow), 6px 6px 0 rgba(255,107,157,0.15);
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  color: var(--lavender);
+}
+
+h3 {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--coral);
+}
+
+p {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--dark);
+  max-width: 65ch;
+}
+
+a {
+  color: var(--pink);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--lavender);
+}
+
+/* ─── Layout ────────────────────────────────── */
+.container {
+  width: min(90%, 960px);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+section {
+  padding-block: 4rem;
+}
+
+/* ─── Hero / Banner ─────────────────────────── */
+.hero {
+  text-align: center;
+  padding-block: 5rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(ellipse at center, rgba(255,217,61,0.18) 0%, transparent 70%);
+  animation: pulse-glow 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero .subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  font-weight: 700;
+  color: var(--sky);
+  margin-top: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero .message {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #555;
+  max-width: 50ch;
+  margin-inline: auto;
+}
+
+/* ─── Cards ─────────────────────────────────── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.4rem;
+  box-shadow: var(--shadow-pop);
+  border: 3px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 5px;
+  background: linear-gradient(90deg, var(--pink), var(--yellow), var(--mint), var(--sky), var(--lavender));
+  background-size: 300% 100%;
+  animation: rainbow-slide 4s linear infinite;
+}
+
+.card:hover {
+  transform: translateY(-6px) rotate(-0.5deg);
+  box-shadow: var(--shadow-float);
+  border-color: var(--pink);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ─── Buttons ───────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-xl);
+  font-family: var(--font-body);
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.25);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.btn:hover::after {
+  transform: translateX(0);
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: var(--shadow-float);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--pink), var(--coral));
+  color: var(--white);
+  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--sky), var(--lavender));
+  color: var(--white);
+  box-shadow: 0 6px 20px rgba(77, 150, 255, 0.35);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--yellow), #ffb347);
+  color: var(--dark);
+  box-shadow: 0 6px 20px rgba(255, 217, 61, 0.4);
+}
+
+/* ─── Decorative Badges / Tags ──────────────── */
+.badge {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  border-radius: var(--radius-xl);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.badge-pink     { background: var(--pink);     color: var(--white); }
+.badge-yellow   { background: var(--yellow);   color: var(--dark);  }
+.badge-mint     { background: var(--mint);     color: var(--white); }
+.badge-sky      { background: var(--sky);      color: var(--white); }
+.badge-lavender { background: var(--lavender); color: var(--white); }
+
+/* ─── Confetti Emojis (decorative spans) ────── */
+.confetti {
+  display: inline-block;
+  font-size: 1.6rem;
+  animation: wiggle 1.4s ease-in-out infinite;
+}
+
+.confetti:nth-child(2) { animation-delay: 0.2s; }
+.confetti:nth-child(3) { animation-delay: 0.4s; }
+.confetti:nth-child(4) { animation-delay: 0.6s; }
+
+/* ─── Floating Balloon ──────────────────────── */
+.balloon {
+  display: inline-block;
+  font-size: 3rem;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.15));
+}
+
+.balloon:nth-child(2) { animation-delay: 0.5s;  font-size: 2.2rem; }
+.balloon:nth-child(3) { animation-delay: 1s;    font-size: 2.6rem; }
+
+/* ─── Banner / Highlight Box ────────────────── */
+.banner {
+  background: linear-gradient(135deg, var(--pink) 0%, var(--lavender) 100%);
+  color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 3rem;
+  text-align: center;
+  box-shadow: var(--shadow-float);
+  position: relative;
+  overflow: hidden;
+}
+
+.banner h2 {
+  color: var(--white);
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+}
+
+.banner p {
+  color: rgba(255,255,255,0.9);
+}
+
+.banner::after {
+  content: '🎉🎂🎈🎊✨';
+  position: absolute;
+  bottom: -4px; right: 12px;
+  font-size: 2rem;
+  letter-spacing: 6px;
+  opacity: 0.25;
+}
+
+/* ─── Cake / Celebration Icon ───────────────── */
+.cake-icon {
+  font-size: 5rem;
+  display: block;
+  text-align: center;
+  animation: bounce 1.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+  filter: drop-shadow(0 8px 16px rgba(255,107,157,0.4));
+}
+
+/* ─── Info List ─────────────────────────────── */
+.info-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.info-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.info-list li::before {
+  content: '🎀';
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* ─── Divider ───────────────────────────────── */
+.divider {
+  border: none;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--pink), var(--yellow), var(--mint), transparent);
+  border-radius: 999px;
+  margin-block: 2.5rem;
+  opacity: 0.6;
+}
+
+/* ─── Image ─────────────────────────────────── */
+img {
+  max-width: 100%;
+  border-radius: var(--radius-md);
+  display: block;
+}
+
+img.photo {
+  border: 4px solid var(--white);
+  box-shadow: var(--shadow-pop);
+  border-radius: var(--radius-lg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img.photo:hover {
+  transform: rotate(2deg) scale(1.03);
+  box-shadow: var(--shadow-float);
+}
+
+/* ─── Footer ────────────────────────────────── */
+footer {
+  text-align: center;
+  padding-block: 2.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #aaa;
+  letter-spacing: 0.04em;
+}
+
+footer span {
+  color: var(--pink);
+  font-size: 1.1rem;
+}
+
+/* ─── Animations ────────────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.05); }
+}
+
+@keyframes rainbow-slide {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-8deg); }
+  50%       { transform: rotate(8deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50%       { transform: translateY(-14px) rotate(3deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  40%       { transform: translateY(-18px); }
+  60%       { transform: translateY(-8px); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Animate-on-load utility */
+.animate-in {
+  animation: fade-up 0.7s ease both;
+}
+
+.animate-in:nth-child(2) { animation-delay: 0.1s; }
+.animate-in:nth-child(3) { animation-delay: 0.2s; }
+.animate-in:nth-child(4) { animation-delay: 0.3s; }
+.animate-in:nth-child(5) { animation-delay: 0.4s; }
+
+/* ─── Responsive ────────────────────────────── */
+@media (max-width: 600px) {
+  .hero {
+    padding-block: 3rem 2.5rem;
+  }
+
+  .banner {
+    padding: 2rem 1.5rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
